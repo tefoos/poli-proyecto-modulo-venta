@@ -1,0 +1,50 @@
+001;Laptop Dell Inspiron;2500000
+002;Mouse Logitech MX;180000
+003;Teclado Mecánico Corsair;350000
+004;Monitor Samsung 24'';800000
+005;Auriculares Sony WH;450000
+006;Tablet iPad Air;1800000
+007;Smartphone Samsung Galaxy;1200000
+008;Impresora HP LaserJet;650000
+009;Disco Duro Externo 1TB;320000
+010;Memoria USB 64GB;45000
+011;Cámara Web Logitech;180000
+012;Parlante Bluetooth JBL;280000
+013;Cargador Portátil Anker;120000
+014;Router WiFi TP-Link;200000
+015;Cable HDMI 2m;25000
+016;Adaptador USB-C;35000
+017;SSD Kingston 500GB;380000
+018;Mousepad Gaming;45000
+019;Soporte para Laptop;150000
+020;Hub USB 4 Puertos;85000
+021;MacBook Pro 13'';4500000
+022;iPhone 15;3200000
+023;AirPods Pro;680000
+024;Smart TV LG 55'';2100000
+025;PlayStation 5;2800000
+026;Xbox Series X;2600000
+027;Nintendo Switch;1400000
+028;Drone DJI Mini;1800000
+029;GoPro Hero 12;1600000
+030;Smartwatch Apple;1200000
+031;Fitbit Charge 5;450000
+032;Kindle Paperwhite;480000
+033;Echo Dot Amazon;180000
+034;Google Nest Hub;380000
+035;Ring Video Doorbell;650000
+036;Chromecast Google;150000
+037;Fire TV Stick;120000
+038;Webcam 4K Logitech;420000
+039;Micrófono Blue Yeti;520000
+040;Auriculares Gaming Razer;380000
+041;Silla Gaming Corsair;850000
+042;Escritorio Gaming;650000
+043;Lámpara LED RGB;120000
+044;Ventilador USB;45000
+045;Cooler para Laptop;95000
+046;Base Refrigerante;130000
+047;Protector Surge;85000
+048;UPS APC 600VA;320000
+049;Switch Ethernet 8 puertos;180000
+050;Antena WiFi USB;65000

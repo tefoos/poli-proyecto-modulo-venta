@@ -1,0 +1,10 @@
+CC;5415672935;Juan Carlos;González Pérez
+CC;8967308422;Luis Fernando;Gutiérrez Medina
+CC;5232184292;Juan Carlos;García Martínez
+CE;1510482299;Carmen Rosa;Moreno Castillo
+CC;8196054368;Laura Cristina;Ramírez Castro
+CC;6626612491;Diana Patricia;García Martínez
+CC;9158533020;Carmen Rosa;Romero Guerrero
+CC;5938623674;Luis Fernando;Cruz Morales
+CE;7189898798;Sergio Andrés;Álvarez Ramos
+CC;9536626150;Andrés Felipe;Moreno Castillo
