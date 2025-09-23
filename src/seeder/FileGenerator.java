@@ -1,9 +1,11 @@
 package seeder;
 
 import java.util.Random;
-import java.io.File;
+import java.util.List;
+import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
+import utils.FolderUtils;
 
 public class FileGenerator {
 	
@@ -11,31 +13,36 @@ public class FileGenerator {
 	private static final String DATA_FOLDER = "data";
 	
 	
-	public static void main(String[] args) {
+	
+	/**
+	* Genera todos los archivos de prueba necesarios para el sistema.
+	* 
+	* Crea archivos de productos, vendedores y sus respectivas ventas.
+	*/
+	public static void generateTestData() {
 		try {
-			createAndCleanDataFolder();
+			FolderUtils.createAndCleanFolder(DATA_FOLDER);
 			
-			System.out.println("Generando archivos....");
+			System.out.println("Generando archivos de prueba...");
 			
 			createProductsFile(50);
-			System.out.println("Productos Generados Exitosamente...");
+			System.out.println("Productos generados");
 			
-			createSalesManInfoFile(10);
-			System.out.println("Informacion de Vendedores Generada Exitosamente...");
+			List<SalesmanData> salesmenList = createSalesManInfoFile(10);
+			System.out.println("Vendedores generados");
 			
-			for (int i = 1; i <= 10; i++) {
-				String name = DataSeeders.NAMES[random.nextInt(DataSeeders.NAMES.length)];
-				long id = generateRandomIdNumber();
+			for (SalesmanData salesman : salesmenList) {
 	            int salesCount = random.nextInt(15) + 1;
-	            
-	            createSalesMenFile(salesCount, name, id);
+	            createSalesMenFile(salesCount, salesman.getName(), salesman.getId());
 			}
+			System.out.println("Archivos de ventas generados");
 			
 		} catch (Exception e) {
 	        System.err.println("Error generando archivos: " + e.getMessage());
 	        e.printStackTrace();
 	    }
 	}
+	
 	
 	/**
 	* Crea un archivo con información de productos disponibles.
@@ -69,9 +76,12 @@ public class FileGenerator {
 	* número de identificación, nombres y apellidos extraídos de listas predefinidas.
 	* 
 	* @param salesmanCount número de vendedores a generar en el archivo
+	* @return lista con los datos de los vendedores generados
 	*/
-	public static void createSalesManInfoFile(int salesmanCount) {
+	public static List<SalesmanData> createSalesManInfoFile(int salesmanCount) {
 		String filename = DATA_FOLDER +  "/vendedores.txt";
+		List<SalesmanData> salesmenList = new ArrayList<>();
+		
 		try (FileWriter writer = new FileWriter(filename)){
 			for (int i = 0; i < salesmanCount; i++) {
 				
@@ -81,10 +91,13 @@ public class FileGenerator {
 				String lastName = DataSeeders.LASTNAMES[random.nextInt(DataSeeders.LASTNAMES.length)];
 				
 				writer.write(documentType + ";" + id + ";" + name + ";" + lastName + "\n");
+				salesmenList.add(new SalesmanData(id, name, lastName));
 			}
 		} catch (IOException e) {
             throw new RuntimeException("Error al crear archivo de vendedores: " + e.getMessage(), e);
         }
+        
+        return salesmenList;
 	}
 	
 	/**
@@ -126,33 +139,17 @@ public class FileGenerator {
 	}
 	
 	/**
-	* Crea la carpeta de datos si no existe, o la limpia si ya existe.
-	* Garantiza que exista una carpeta sin datos para generar archivos nuevos.
+	* Clase interna para almacenar datos de vendedores temporalmente
 	*/
-	private static void createAndCleanDataFolder() {
-		File folder = new File(DATA_FOLDER);
+	private static class SalesmanData {
+		private long id;
+		private String name;
+		public SalesmanData(long id, String name, String lastName) {
+			this.id = id;
+			this.name = name;
+		}
 		
-		if(!folder.exists()) {
-			folder.mkdirs();
-		} else {
-			cleanDataFolder(folder);
-		}
-	}
-	
-	 /**
-	 * Limpia el contenido de la carpeta especificada eliminando todos los archivos.
-	 * Esto asegura que cada ejecución del programa genere archivos completamente nuevos.
-	 * 
-	 * @param folder la carpeta que se va a limpiar
-	 */
-	private static void cleanDataFolder(File folder) {
-		File[] files = folder.listFiles();
-		if (files != null && files.length > 0) {
-			for (File file: files) {
-				if (file.isFile()) {
-					file.delete();
-				}
-			}
-		}
+		public long getId() { return id; }
+		public String getName() { return name; }
 	}
 }
