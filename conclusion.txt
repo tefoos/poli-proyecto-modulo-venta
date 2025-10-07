@@ -1,0 +1,19 @@
+
+1. LO APRENDIDO DURANTE EL DESARROLLO DEL PROYECTO
+---------------------------------------------------
+
+Durante el desarrollo de este proyecto se reforzaron conceptos fundamentales de programación en Java, especialmente en el manejo de archivos planos y estructuras de datos. Se practicó el uso de HashMaps para búsquedas eficientes por ID, el ordenamiento de colecciones usando comparadores personalizados, y la organización de código en paquetes (models, seeder, utils) para mantener una estructura modular y mantenible. Además, se implementó validación de datos para detectar errores de formato, IDs inexistentes y valores inválidos.
+
+
+2. POSIBLES APLICACIONES PROFESIONALES
+---------------------------------------
+
+Los conocimientos adquiridos en este proyecto son directamente aplicables en cualquier industria que maneje datos, ya que la organización, validación y generación de reportes son tareas universales en el desarrollo de software. En el ámbito empresarial, sistemas similares se utilizan para procesar datos de ventas, inventarios, facturación, análisis de rendimiento de empleados, y consolidación de información de múltiples fuentes. En el sector financiero, estas técnicas son fundamentales para procesar transacciones y generar reportes regulatorios. En e-commerce, se aplican para analizar ventas por producto, vendedor o región. La capacidad de leer, validar, procesar y generar reportes ordenados a partir de archivos es una habilidad fundamental en prácticamente cualquier rol de desarrollo de software.
+
+
+3. DIFICULTADES PRESENTADAS DURANTE EL DESARROLLO
+--------------------------------------------------
+
+La principal dificultad técnica fue lograr la coherencia entre los datos pseudoaleatorios del archivo vendedores.txt y los archivos individuales de ventas por vendedor. Inicialmente, los IDs generados no coincidían, lo que causaba que el sistema no pudiera asociar correctamente las ventas con los vendedores registrados. Esto se resolvió modificando FileGenerator para almacenar temporalmente los datos de vendedores generados y reutilizar esos mismos IDs al crear los archivos individuales de ventas.
+
+Otra dificultad fue la estructura inicial con dos clases main separadas (GenerateInfoFiles y Main), que generaba conflictos al ejecutar el programa. Al intentar ejecutar GenerateInfoFiles, el IDE entraba en conflicto con el main de procesamiento, complicando las pruebas. Para solucionar esto, se integró la generación de archivos dentro del flujo principal de Main, simplificando la ejecución y evitando ambigüedades. Aunque esto difiere del diseño original solicitado, resultó en un sistema más funcional y fácil de probar durante el desarrollo.
